@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>이미지검색</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
+    <style>
+        #list img{width: 80px; height: 80px;}
+    </style>
+</head>
+<body>
+    <!-- 이미지목록 페이지 -->
+    <div data-role="page" id="main">
+        <div data-role="header" data-theme="b" data-position="fixed">
+            <a href="index.html" data-icon="home" data-iconpos="notext" target="_self">Home</a>
+            <h2>이미지검색</h2>
+            <a href="index.html" data-icon="back" data-iconpos="notext" target="_self">Back</a>
+        </div>
+        <div data-role="content">
+            <input type="text" id="txtQuery" value="설현">
+            <div id="list" style="margin: 18px auto; overflow: hidden; width: 500px;"></div>
+            <script id="temp" type="text/x-handlebars-template">
+                {{#each documents}}
+                    <div style="float: left; width: 70px; margin: 10px;">
+                        <a href="{{image_url}}"><img src="{{thumbnail_url}}"></a>
+                    </div>
+                {{/each}}
+            </script>
+            <input type="button" id="btnMore" value="더보기">
+        </div>
+        <div data-role="footer" data-theme="b" data-position="fixed">
+            <h2>인천일보 아카데미 홍길동</h2>
+        </div>
+    </div>
+</body>
+<script>
+    var url="https://dapi.kakao.com/v2/search/image";
+</script>
+<script src="script.js"></script>
+</html>

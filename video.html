@@ -3,33 +3,31 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>도서검색</title>
+    <title>동영상검색</title>
     <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.js"></script>
     <style>
-        #list img{width: 60px; height: 80px;}
+        #list li a img{width: 80px; height: 80px;}
     </style>
 </head>
 <body>
-    <!-- 도서목록 페이지 -->
+    <!-- 동영상목록 페이지 -->
     <div data-role="page" id="main">
         <div data-role="header" data-theme="b" data-position="fixed">
             <a href="index.html" data-icon="home" data-iconpos="notext" target="_self">Home</a>
-            <h2>도서검색</h2>
+            <h2>동영상검색</h2>
             <a href="index.html" data-icon="back" data-iconpos="notext" target="_self">Back</a>
         </div>
         <div data-role="content">
-            <input type="text" id="txtQuery" value="jQuery">
+            <input type="text" id="txtQuery" value="이슈">
             <ul data-role="listview" id="list" style="margin: 18px 0;"></ul>
             <script id="temp" type="text/x-handlebars-template">
                 {{#each documents}}
                     <li>
-                        <a href="#sub" title="{{title}}" contents="{{contents}}" price="{{price}}" authors="{{authors}}">
-                            <img src="{{thumbnail}}">{{{title}}}
-                        </a>
+                        <a href="{{url}}" data-role="popup"><img src="{{thumbnail}}">{{title}}</a>
                     </li>
                 {{/each}}
             </script>
@@ -39,27 +37,9 @@
             <h2>인천일보 아카데미 홍길동</h2>
         </div>
     </div>
-
-    <!-- 도서정보 페이지 -->
-    <div data-role="page" id="sub">
-        <div data-role="header" data-theme="b" data-position="fixed">
-            <a href="index.html" data-icon="home" data-iconpos="notext" target="_self">Home</a>
-            <h2>도서정보</h2>
-            <a href="#main" data-icon="back" data-iconpos="notext" target="_self">Back</a>
-        </div>
-        <div data-role="content" style="border: 2px solid gray; margin: 10px; border-radius: 10px;">
-            <img src="" id="image" width=120 height=150><hr>
-            <h5 id="title"></h5><hr>
-            <h5 id="authors"></h5><hr>
-            <p id="contents"></p>
-        </div>
-        <div data-role="footer" data-theme="b" data-position="fixed">
-            <h2>인천일보 아카데미 홍길동</h2>
-        </div>
-    </div>
 </body>
 <script>
-    var url="https://dapi.kakao.com/v3/search/book?target=title";
+    var url="https://dapi.kakao.com/v2/search/vclip";
 </script>
 <script src="script.js"></script>
 </html>
